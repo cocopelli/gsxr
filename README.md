@@ -5,6 +5,7 @@
 [![Codacy Badge][codacy-image]][codacy-url]
 [![GitHub tag][github-tag-image]][github-tag-url]
 [![License][license-image]][license-url]
+[![Inline docs][docs-imgae]][docs-url]
 <!-- todo  shields for docs and opbeat -->
 # Gsxr
 
@@ -55,3 +56,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 [license-image]: https://img.shields.io/github/license/cocopelli/gsxr.svg
 [license-url]: https://github.com/cocopelli/gsxr/blob/master/LICENSE
+
+[docs-imgae]: http://inch-ci.org/github/cocopelli/gsxr.svg?branch=master
+[docs-url]: http://inch-ci.org/github/cocopelli/gsxr
