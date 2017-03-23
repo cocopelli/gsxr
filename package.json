@@ -7,7 +7,7 @@
     "start": "ng serve",
     "build": "ng build",
     "lint": "ng lint",
-    "test": "echo \"Error: no test specified\" && exit 0",
+    "test": "ng test",
     "e2e": "ng e2e"
   },
   "repository": {
