@@ -41,7 +41,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 [travis-url]: https://travis-ci.org/cocopelli/gsxr
 
 [circleci-image]: https://circleci.com/gh/cocopelli/gsxr.svg?style=shield&circle-token=:circle-token
-[circleci-url]: https://www.codacy.com/app/cocopelli/gsxr/dashboard
+[circleci-url]: https://circleci.com/gh/cocopelli/gsxr
 
 [david-dep-image]: https://david-dm.org/cocopelli/gsxr/status.svg
 [david-dep-url]: https://david-dm.org/cocopelli/gsxr#info=dependencies
