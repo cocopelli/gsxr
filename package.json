@@ -6,9 +6,9 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "lint": "ng lint",
     "pretest": "npm run lint",
     "test": "echo \"Error: no test specified\" && exit 0",
-    "lint": "ng lint",
     "e2e": "ng e2e"
   },
   "repository": {
