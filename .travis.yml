@@ -1,5 +1,15 @@
 language: node_js
 node_js:
-  - "iojs"
-  - "7"
-  - "6"
+  - 'iojs'
+  - '7'
+  - '6'
+
+  deploy:
+    provider: heroku
+    api_key: "7eea1a93-f8fa-4b58-ad2b-b27d386f4315"
+    app: gsxr
+    on:
+      tags: true
+      node: '6'
+  notifications:
+    slack: cocopelli:6JlTKnvCxaLohTdDMGfu5urE
