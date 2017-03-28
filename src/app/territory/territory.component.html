@@ -1,0 +1,38 @@
+<div class="ter-list">
+  <!--<div *ngFor="let entry of entries">-->
+    <!--<div class="ter-id">{{entry.id}}</div>-->
+    <!--<div class="ter-name">{{entry.name}}</div>-->
+    <!--<div class="ter-version">{{entry.version}}</div>-->
+  <!--</div>-->
+
+  <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Territories</div>
+
+    <!-- Table -->
+    <table class="table table-condensed">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Version</th>
+      </tr>
+      <tr *ngFor="let entry of entries">
+        <td>{{entry.id}}</td>
+        <td>{{entry.name}}</td>
+        <td>{{entry.version}}</td>
+      </tr>
+    </table>
+  </div>
+
+  <h2>Neuen Eintrag erzeugen</h2>
+  <oz-territory-form (entryCreated)="entries.push($event)"></oz-territory-form>
+</div>
+
+<section>
+  <section *ngIf="isLoading && !errorMessage">
+    Loading our hyperdrives!!! Retrieving data...
+  </section>
+  <section *ngIf="errorMessage">
+    {{errorMessage}}
+  </section>
+</section>
