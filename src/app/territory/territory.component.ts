@@ -22,7 +22,5 @@ export class TerritoryComponent implements OnInit{
         /* happy path */ p => this.entries = p,
         /* error path */ e => this.errorMessage = e,
         /* onComplete */ () => this.isLoading = false);
-    console.log('entries', this.entries);
-    console.log('Anfrage', this.dump);
   }
 }

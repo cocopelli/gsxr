@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {Http, Headers, Response} from "@angular/http";
+import {Http, Headers, Response, RequestOptions} from "@angular/http";
 import {Observable} from "rxjs";
 import {TerritoryEntry} from "./territory-entry";
 
@@ -19,11 +19,18 @@ export class TerritoryService {
     return territories;
   }
 
-  save(territory: TerritoryEntry): Observable<Response> {
+  postOne(value: TerritoryEntry): Observable<Response> {
 
-    console.log('SAVE: ', this.http.post(`${this.baseUrl}`, JSON.stringify(territory), {headers: this.getHeaders()}));
-    return this.http
-      .post(`${this.baseUrl}`, JSON.stringify(territory), {headers: this.getHeaders()})
+    let headers = new Headers ({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers, method: "post" });
+    let value2 = {"name":"Arctic"};
+
+    console.log('SAVE: ', value);
+    console.log('SAVE true: ', this.http.post('http://tox-static-info-api-qa.herokuapp.com/api/v1/territories', { value2 }, headers));
+    // this.http
+    //   .post(`${this.baseUrl}`, JSON.stringify(value), {headers: this.getHeaders()})
+    // this.http.post(this.baseUrl, value, options)
+    return this.http.post('http://tox-static-info-api-qa.herokuapp.com/api/v1/territories', { name:"Japan" }, options);
   }
 
   private getHeaders() {
@@ -35,7 +42,6 @@ export class TerritoryService {
 
 function mapTerritories(response: Response): TerritoryEntry[] {
 
-  console.log(response.json());
   return response.json()
     .map(toTerritory);
 }
@@ -46,7 +52,6 @@ function toTerritory(r: any): TerritoryEntry {
     name: r.name,
     version: r.__v,
   });
-  console.log('Parsed territory', territory);
   return territory;
 }
 

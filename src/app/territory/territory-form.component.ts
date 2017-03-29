@@ -1,8 +1,7 @@
-import {Component, Output, EventEmitter, OnInit} from "@angular/core";
+import {Component, Output, EventEmitter, OnInit, Inject} from "@angular/core";
 import {TerritoryEntry} from "./territory-entry";
 import {TerritoryService} from "./territory.service";
-import {Response} from "@angular/http";
-import {FormGroup, FormBuilder, Validators} from "@angular/forms";
+import {FormGroup, FormBuilder, Validators, FormControl} from "@angular/forms";
 
 @Component({
   selector: 'oz-territory-form',
@@ -12,40 +11,28 @@ import {FormGroup, FormBuilder, Validators} from "@angular/forms";
 
 export class TerritoryFormComponent implements OnInit {
 
-  public terriForm: FormGroup;
-  public territoryEntry: TerritoryEntry;
+  public myForm: FormGroup;
 
-  constructor(private territoryService: TerritoryService,
-              private _formBuilder: FormBuilder) {
+  constructor(private fb: FormBuilder, private territoryService: TerritoryService) {
   }
 
-  @Output() entryCreated = new EventEmitter();
 
   ngOnInit() {
-    this.terriForm = this._formBuilder.group({
-      name: ['', [<any>Validators.required]]
+    this.myForm = this.fb.group({
+      name: ['', [<any>Validators.required, <any>Validators.minLength(5)]]
     });
+
+    console.log('da tut sich was');
+
+    // (<FormControl>this.myForm.controls['name'])
+    //   .setValue('', { onlySelf: true });
   }
 
-  // saveTerritory() {
-  //   console.log('save this shit', this.territory);
-  //   this.territoryService
-  //     .save(this.territory)
-  //     .subscribe(
-  //       (r: Response) => {
-  //         console.log('gesaved');
-  //       }
-  //     );
-  // }
+  save(value: TerritoryEntry, isValid: boolean) {
 
-  saveTerritory() {
-    console.log('der formGroup', this.terriForm);
-    console.log('geht zum speichern: ', this.territoryEntry);
-    this.territoryService
-      .save(this.territoryEntry)
-      .subscribe(
-        (r: Response) => {console.log('Raus per POST')}
-      );
+    console.log(value, isValid);
+    console.log('Antwort von POST: ', this.territoryService.postOne(value));
+    this.territoryService.postOne(value
+    );
   }
-
 }

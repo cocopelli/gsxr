@@ -1,5 +1,5 @@
 export interface TerritoryEntry {
-  // id: number,
+  id: number,
   name: string,
   version: string
 }
